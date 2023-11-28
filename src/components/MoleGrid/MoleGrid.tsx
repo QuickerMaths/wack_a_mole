@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import hole from "../../assets/hole.png";
 import mole from "../../assets/mole.png";
 import styles from "./MoleGrid.module.css";
-import Home from "../../pages/Home/Home";
+import { useNavigate } from "react-router";
 
 interface Props {
   score: number;
@@ -12,6 +12,7 @@ interface Props {
 }
 
 const MoleGrid: React.FC<Props> = ({ score, setScore, lives, setLives }) => {
+  const navigate = useNavigate();
   const [moles, setMoles] = useState<boolean[]>(new Array(9).fill(false));
 
   function popAMole(randomIndex: number) {
@@ -33,7 +34,7 @@ const MoleGrid: React.FC<Props> = ({ score, setScore, lives, setLives }) => {
   function resetGame() {
     setLives(3);
     setScore(0);
-    alert("game over");
+    navigate("../game-over");
   }
 
   function wackAMole(currentIndex: number) {
