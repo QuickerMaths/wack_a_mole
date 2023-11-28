@@ -2,13 +2,16 @@ import { useEffect, useState } from "react";
 import hole from "../../assets/hole.png";
 import mole from "../../assets/mole.png";
 import styles from "./MoleGrid.module.css";
+import Home from "../../pages/Home/Home";
 
 interface Props {
   score: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
+  lives: number;
+  setLives: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const MoleGrid: React.FC<Props> = ({ score, setScore }) => {
+const MoleGrid: React.FC<Props> = ({ score, setScore, lives, setLives }) => {
   const [moles, setMoles] = useState<boolean[]>(new Array(9).fill(false));
 
   function popAMole(randomIndex: number) {
@@ -27,8 +30,20 @@ const MoleGrid: React.FC<Props> = ({ score, setScore }) => {
     });
   }
 
+  function resetGame() {
+    setLives(3);
+    setScore(0);
+    alert("game over");
+  }
+
   function wackAMole(currentIndex: number) {
-    if (!moles[currentIndex]) return;
+    if (!moles[currentIndex] && lives) {
+      setLives(lives - 1);
+      return;
+    } else if (!moles[currentIndex] && lives <= 0) {
+      resetGame();
+      return;
+    }
     hideAMole(currentIndex);
     setScore(score + 1);
   }

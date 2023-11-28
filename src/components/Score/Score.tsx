@@ -6,9 +6,9 @@ interface Props {
 
 const Score: React.FC<Props> = ({ score }) => {
   return (
-    <h1 className={styles.score}>
+    <h2 className={styles.score}>
       Score: <span>{score}</span>
-    </h1>
+    </h2>
   );
 };
 
