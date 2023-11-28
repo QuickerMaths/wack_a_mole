@@ -1,4 +1,29 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: red;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.select {
+  width: 100%;
+  border-radius: 25px;
+  color: black;
+  background-color: greenyellow;
+}
+
 .button {
+  width: 90%;
   background-color: greenyellow;
   padding: 10px 25px;
   border: none;

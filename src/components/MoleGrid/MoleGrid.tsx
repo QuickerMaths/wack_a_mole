@@ -5,13 +5,20 @@ import styles from "./MoleGrid.module.css";
 import { useNavigate } from "react-router";
 
 interface Props {
+  state: any;
   score: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
   lives: number;
   setLives: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const MoleGrid: React.FC<Props> = ({ score, setScore, lives, setLives }) => {
+const MoleGrid: React.FC<Props> = ({
+  state,
+  score,
+  setScore,
+  lives,
+  setLives,
+}) => {
   const navigate = useNavigate();
   const [moles, setMoles] = useState<boolean[]>(new Array(9).fill(false));
 
@@ -55,8 +62,8 @@ const MoleGrid: React.FC<Props> = ({ score, setScore, lives, setLives }) => {
       popAMole(randomIndex);
       setTimeout(() => {
         hideAMole(randomIndex);
-      }, (randomIndex + 1) * 1000);
-    }, 1000);
+      }, (randomIndex + 1) * state.difficulty);
+    }, state.difficulty);
 
     return () => {
       clearInterval(interval);
