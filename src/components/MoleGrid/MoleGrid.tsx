@@ -34,7 +34,7 @@ const MoleGrid: React.FC<Props> = ({ score, setScore, lives, setLives }) => {
   function resetGame() {
     setLives(3);
     setScore(0);
-    navigate("../game-over");
+    navigate("../game-over", { state: { score } });
   }
 
   function wackAMole(currentIndex: number) {

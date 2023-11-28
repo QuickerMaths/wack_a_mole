@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.title {
+  font-size: 50px;
+  color: red;
+}
+
+.message {
+  font-size: 25px;
+}
+
+.span {
+  color: greenyellow;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.button {
+  width: 60%;
+  background-color: greenyellow;
+  padding: 10px 25px;
+  border: none;
+  color: black;
+  font-size: 25px;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: color, background-color, 0.5s ease-in-out;
+}
+
+.button:hover {
+  background-color: rgba(173, 255, 47, 0.5);
+  color: white;
+}
